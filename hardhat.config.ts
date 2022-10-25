@@ -1,6 +1,18 @@
 require('@matterlabs/hardhat-zksync-deploy');
 require('@matterlabs/hardhat-zksync-solc');
 
+// dynamically changes endpoints for local tests
+const zkSyncDeploy =
+  process.env.NODE_ENV == 'test'
+    ? {
+        zkSyncNetwork: 'http://localhost:3050',
+        ethNetwork: 'http://localhost:8545',
+      }
+    : {
+        zkSyncNetwork: 'https://zksync2-testnet.zksync.dev',
+        ethNetwork: 'goerli',
+      };
+
 module.exports = {
   zksolc: {
     version: '1.2.0',
@@ -15,10 +27,7 @@ module.exports = {
       },
     },
   },
-  zkSyncDeploy: {
-    zkSyncNetwork: 'https://zksync2-testnet.zksync.dev',
-    ethNetwork: 'goerli', // Can also be the RPC URL of the network (e.g. `https://goerli.infura.io/v3/<API_KEY>`)
-  },
+  zkSyncDeploy,
   networks: {
     hardhat: {
       zksync: true,
