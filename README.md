@@ -1,6 +1,6 @@
 # zksync-hardhat-template
 
-This project was scaffolded with `npx zksync-hardhat init`.
+This project was scaffolded with `zksync-init`.
 
 ## Project structure
 
