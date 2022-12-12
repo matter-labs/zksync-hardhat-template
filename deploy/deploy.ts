@@ -8,7 +8,6 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`Running deploy script for the Greeter contract`);
 
   // Initialize the wallet.
-  const provider = new Provider(hre.userConfig.zkSyncDeploy?.zkSyncNetwork);
   const wallet = new Wallet('<WALLET-PRIVATE-KEY>');
 
   // Create deployer object and load the artifact of the contract you want to deploy.
