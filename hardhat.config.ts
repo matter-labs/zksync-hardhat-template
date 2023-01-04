@@ -1,7 +1,7 @@
 import { HardhatUserConfig } from "hardhat/config";
 
-require("@matterlabs/hardhat-zksync-deploy");
-require("@matterlabs/hardhat-zksync-solc");
+import "@matterlabs/hardhat-zksync-deploy";
+import "@matterlabs/hardhat-zksync-solc";
 
 // dynamically changes endpoints for local tests
 const zkSyncTestnet =
@@ -26,7 +26,6 @@ const config: HardhatUserConfig = {
   defaultNetwork: "zkSyncTestnet",
   networks: {
     hardhat: {
-      // @ts-ignore
       zksync: true,
     },
     zkSyncTestnet,
