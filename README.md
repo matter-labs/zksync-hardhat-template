@@ -12,8 +12,18 @@ This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zks
 ## Commands
 
 - `yarn hardhat compile` will compile the contracts.
-- `yarn hardhat deploy-zksync` will run the `/deploy/deploy.ts` script. This command accepts a `--script` so you can run other script files.
+- `yarn hardhat deploy-zksync` will run the `/deploy/deploy.ts` script. This command accepts a `--script` so you can run other script files. Requires [environment variable setup](#environment-variables).
 - `yarn test`: run tests. **Check test requirements below.**
+
+### Environment variables
+
+In order to prevent users to leak private keys, this project includes the `dotenv` package which is used to load environment variables. It's used to load the wallet private key, required to run the deploy script.
+
+To use it, rename `.env.example` to `.env` and enter your private key.
+
+```
+WALLET_PRIVATE_KEY=123cde574ccff....
+```
 
 ### Local testing
 
