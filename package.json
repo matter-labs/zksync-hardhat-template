@@ -20,6 +20,8 @@
     "zksync-web3": "^0.12.3"
   },
   "scripts": {
-    "test": "NODE_ENV=test hardhat test --network hardhat"
+    "test": "NODE_ENV=test hardhat test --network hardhat",
+    "deploy": "yarn hardhat deploy-zksync --script deploy-greeter.ts",
+    "greet": "yarn hardhat deploy-zksync --script use-greeter.ts"
   }
 }

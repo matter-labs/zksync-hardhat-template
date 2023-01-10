@@ -12,8 +12,11 @@ This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zks
 ## Commands
 
 - `yarn hardhat compile` will compile the contracts.
-- `yarn hardhat deploy-zksync` will run the `/deploy/deploy.ts` script. This command accepts a `--script` so you can run other script files. Requires [environment variable setup](#environment-variables).
+- `yarn run deploy` will execute the deployment script `/deploy/deploy-greeter.ts`. Requires [environment variable setup](#environment-variables).
+- `yarn run greet` will execute the script `/deploy/use-greeter.ts` which interacts with the Greeter contract deployed.
 - `yarn test`: run tests. **Check test requirements below.**
+
+Both `yarn run deploy` and `yarn run greet` are configured in the `package.json` file and run `yarn hardhat deploy-zksync`.
 
 ### Environment variables
 

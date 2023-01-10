@@ -1,4 +1,4 @@
-import { Wallet, Provider, utils } from "zksync-web3";
+import { Wallet, utils } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
@@ -7,13 +7,15 @@ import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 import dotenv from "dotenv";
 dotenv.config();
 
+// load wallet private key from env file
 const PRIVATE_KEY = process.env.WALLET_PRIVATE_KEY || "";
+
+if (!PRIVATE_KEY)
+  throw "⛔️ Private key not detected! Add it to the .env file!";
 
 // An example of a deploy script that will deploy and call a simple contract.
 export default async function (hre: HardhatRuntimeEnvironment) {
   console.log(`Running deploy script for the Greeter contract`);
-  if (!PRIVATE_KEY)
-    throw "⛔️ Private key not detected! Add it to the .env file!";
 
   // Initialize the wallet.
   const wallet = new Wallet(PRIVATE_KEY);
