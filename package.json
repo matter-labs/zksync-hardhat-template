@@ -6,8 +6,8 @@
   "author": "Antonio <aug@matterlabs.dev>",
   "license": "MIT",
   "devDependencies": {
-    "@matterlabs/hardhat-zksync-deploy": "^0.6.1",
-    "@matterlabs/hardhat-zksync-solc": "^0.3.15",
+    "@matterlabs/hardhat-zksync-deploy": "^0.6.3",
+    "@matterlabs/hardhat-zksync-solc": "^0.3.17",
     "@types/chai": "^4.3.4",
     "@types/mocha": "^10.0.1",
     "chai": "^4.3.7",
