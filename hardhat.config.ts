@@ -15,6 +15,7 @@ const zkSyncTestnet =
         url: "https://zksync2-testnet.zksync.dev",
         ethNetwork: "goerli",
         zksync: true,
+        verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'  // Verification endpoint
       };
 
 const config: HardhatUserConfig = {

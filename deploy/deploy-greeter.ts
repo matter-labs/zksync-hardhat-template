@@ -53,4 +53,16 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // Show the contract info.
   const contractAddress = greeterContract.address;
   console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
+
+  // Verify contract programmatically 
+  //
+  // Contract MUST be fully qualified name (e.g. path/sourceName:contractName)
+  const contractFullyQualifedName = "contracts/Greeter.sol:Greeter";
+  const verificationId = await hre.run("verify:verify", {
+    address: contractAddress,
+    contract: contractFullyQualifedName,
+    constructorArguments: [greeting],
+    bytecode: artifact.bytecode,
+  });
+  console.log(`${contractFullyQualifedName} verified! VerificationId: ${verificationId}`)
 }
