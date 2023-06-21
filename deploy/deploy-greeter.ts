@@ -47,10 +47,26 @@ export default async function (hre: HardhatRuntimeEnvironment) {
 
   //obtain the Constructor Arguments
   console.log(
-    "constructor args:" + greeterContract.interface.encodeDeploy([greeting])
+    "Constructor args:" + greeterContract.interface.encodeDeploy([greeting])
   );
 
   // Show the contract info.
   const contractAddress = greeterContract.address;
   console.log(`${artifact.contractName} was deployed to ${contractAddress}`);
+
+  // verify contract for tesnet & mainnet
+  if (process.env.NODE_ENV != "test") {
+    // Contract MUST be fully qualified name (e.g. path/sourceName:contractName)
+    const contractFullyQualifedName = "contracts/Greeter.sol:Greeter";
+
+    // Verify contract programmatically
+    const verificationId = await hre.run("verify:verify", {
+      address: contractAddress,
+      contract: contractFullyQualifedName,
+      constructorArguments: [greeting],
+      bytecode: artifact.bytecode,
+    });
+  } else {
+    console.log(`Contract not verified, deployed locally.`);
+  }
 }
