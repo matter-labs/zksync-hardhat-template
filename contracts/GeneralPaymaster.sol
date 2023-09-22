@@ -67,8 +67,7 @@ contract GaslessPaymaster is IPaymaster, Ownable {
         bytes32,
         ExecutionResult _txResult,
         uint256 _maxRefundedGas
-    ) external payable override onlyBootloader {
-    }
+    ) external payable override onlyBootloader {}
 
     function withdraw(address payable _to) external onlyOwner {
         uint256 balance = address(this).balance;

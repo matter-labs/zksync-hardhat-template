@@ -31,7 +31,7 @@ contract ERC20fixedPaymaster is IPaymaster, Ownable {
     }
 
     function validateAndPayForPaymasterTransaction(
-        bytes32,    
+        bytes32,
         bytes32,
         Transaction calldata _transaction
     )
@@ -115,8 +115,7 @@ contract ERC20fixedPaymaster is IPaymaster, Ownable {
         bytes32,
         ExecutionResult _txResult,
         uint256 _maxRefundedGas
-    ) external payable override onlyBootloader {
-    }
+    ) external payable override onlyBootloader {}
 
     function withdraw(address _to) external onlyOwner {
         (bool success, ) = payable(_to).call{value: address(this).balance}("");
@@ -124,5 +123,4 @@ contract ERC20fixedPaymaster is IPaymaster, Ownable {
     }
 
     receive() external payable {}
-    
 }
