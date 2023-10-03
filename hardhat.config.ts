@@ -9,8 +9,8 @@ import "@matterlabs/hardhat-zksync-verify";
 const zkSyncTestnet =
   process.env.NODE_ENV == "test"
     ? {
-        url: "http://localhost:3050",
-        ethNetwork: "http://localhost:8545",
+        url: "http://127.0.0.1:8011",
+        ethNetwork: "http://127.0.0.1:8011",
         zksync: true,
       }
     : {
