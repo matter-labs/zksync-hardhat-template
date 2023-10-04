@@ -1,4 +1,4 @@
-import { Provider } from "zksync-web3";
+import { Provider, Wallet } from "zksync-web3";
 import * as ethers from "ethers";
 import { HardhatRuntimeEnvironment } from "hardhat/types";
 
@@ -26,7 +26,7 @@ export default async function (hre: HardhatRuntimeEnvironment) {
   // Initialize the provider.
   // @ts-ignore
   const provider = new Provider(hre.userConfig.networks?.zkSyncTestnet?.url);
-  const signer = new ethers.Wallet(PRIVATE_KEY, provider);
+  const signer = new Wallet(PRIVATE_KEY, provider);
 
   // Initialize contract instance
   const contract = new ethers.Contract(
