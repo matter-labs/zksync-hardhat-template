@@ -43,4 +43,3 @@ If you do not start the zkSync local environment, the tests will fail with error
 - [Discord](https://discord.gg/nMaPGrDDwk)
 # proxy_contracts
 # proxy_contracts
-# upgradable_proxy
