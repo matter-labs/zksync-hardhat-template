@@ -44,4 +44,3 @@ If you do not start the zkSync local environment, the tests will fail with error
 # proxy_contracts
 # proxy_contracts
 # upgradable_proxy
-# testing_proxy
