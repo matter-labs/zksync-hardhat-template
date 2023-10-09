@@ -42,4 +42,3 @@ If you do not start the zkSync local environment, the tests will fail with error
 - [Twitter](https://twitter.com/zksync)
 - [Discord](https://discord.gg/nMaPGrDDwk)
 # proxy_contracts
-# proxy_contracts
