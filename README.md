@@ -41,4 +41,3 @@ If you do not start the zkSync local environment, the tests will fail with error
 - [GitHub](https://github.com/matter-labs)
 - [Twitter](https://twitter.com/zksync)
 - [Discord](https://discord.gg/nMaPGrDDwk)
-# proxy_contracts
