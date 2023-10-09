@@ -1,10 +1,9 @@
+import { HardhatUserConfig } from "hardhat/config";
+
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
-import "@matterlabs/hardhat-zksync-verify";
-// upgradable plugin
-import "@matterlabs/hardhat-zksync-upgradable";
 
-import { HardhatUserConfig } from "hardhat/config";
+import "@matterlabs/hardhat-zksync-verify";
 
 // dynamically changes endpoints for local tests
 export const zkSyncTestnet =
@@ -36,7 +35,7 @@ const config: HardhatUserConfig = {
     zkSyncTestnet,
   },
   solidity: {
-    version: "0.8.20",
+    version: "0.8.17",
   },
 };
 
