@@ -451,10 +451,10 @@
     proper-lockfile "^4.1.2"
     semver "^7.5.1"
 
-"@matterlabs/hardhat-zksync-verify@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-verify/-/hardhat-zksync-verify-0.2.0.tgz#a0c6b897202057873355b680244f72f573d86a97"
-  integrity sha512-iUwxhPlNk+HWe+UadLqQzdDb2fammbKYoz8wqVuyr9jygFUf8JNPLWDZOS0KCQgRn/dmT22+i9nSREOg66bAHA==
+"@matterlabs/hardhat-zksync-verify@^0.1.8":
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-verify/-/hardhat-zksync-verify-0.1.8.tgz#0f975bb6354c8762e6d2f5b683453e3dc11dbbab"
+  integrity sha512-Ss8smBeX/h58NOaGQwQCGdYjkcQE9C0BX+iak5fWt49E58mDunnMsVhVogkWqO1QWq0LsdKLAuQO3blbvgVzFQ==
   dependencies:
     "@matterlabs/hardhat-zksync-solc" "0.3.17"
     axios "^1.4.0"

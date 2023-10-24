@@ -1,5 +1,6 @@
 import { HardhatUserConfig } from "hardhat/config";
 
+import "@matterlabs/hardhat-zksync-node";
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
