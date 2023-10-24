@@ -1,13 +1,19 @@
 {
   "name": "zksync-hardhat-template",
-  "version": "1.0.0",
-  "main": "index.js",
-  "author": "Antonio <aug@matterlabs.dev>",
+  "description": "A template for zkSync smart contracts development with Hardhat",
+  "private": true,
+  "author": "Matter Labs",
   "license": "MIT",
+  "repository": "https://github.com/matter-labs/zksync-hardhat-template.git",
+  "scripts": {
+    "test": "hardhat test",
+    "deploy": "yarn hardhat deploy-zksync --script deploy.ts",
+    "interact": "yarn hardhat deploy-zksync --script interact.ts"
+  },
   "devDependencies": {
     "@matterlabs/hardhat-zksync-deploy": "^0.6.5",
     "@matterlabs/hardhat-zksync-solc": "^0.4.2",
-    "@matterlabs/hardhat-zksync-verify": "^0.1.8",
+    "@matterlabs/hardhat-zksync-verify": "^0.2.0",
     "@matterlabs/zksync-contracts": "^0.6.1",
     "@nomiclabs/hardhat-etherscan": "^3.1.7",
     "@openzeppelin/contracts": "^4.9.3",
@@ -22,9 +28,7 @@
     "typescript": "^4.9.4",
     "zksync-web3": "^0.14.3"
   },
-  "scripts": {
-    "test": "NODE_ENV=test hardhat test --network zkSyncTestnet",
-    "deploy": "yarn hardhat deploy-zksync --script deploy-greeter.ts",
-    "greet": "yarn hardhat deploy-zksync --script use-greeter.ts"
+  "dependencies": {
+    "@matterlabs/hardhat-zksync-node": "^0.0.1-beta.1"
   }
 }
