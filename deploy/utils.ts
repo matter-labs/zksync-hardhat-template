@@ -1,16 +1,18 @@
 import { Provider, Wallet } from "zksync-web3";
 import * as hre from "hardhat";
-import { HttpNetworkConfig } from "hardhat/types";
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy";
 import dotenv from "dotenv";
 import { formatEther } from "ethers/lib/utils";
 import { BigNumberish } from "ethers";
 
+import "@matterlabs/hardhat-zksync-node/dist/type-extensions";
+import "@matterlabs/hardhat-zksync-verify/dist/src/type-extensions";
+
 // Load env file
 dotenv.config();
 
 export const getProvider = () => {
-  const rpcUrl = (hre.network.config as HttpNetworkConfig).url;
+  const rpcUrl = hre.network.config.url;
   if (!rpcUrl) throw `⛔️ RPC URL wasn't found in "${hre.network.name}"! Please add a "url" field to the network config in hardhat.config.ts`;
   
   // Initialize zkSync Provider
@@ -55,10 +57,28 @@ export const verifyContract = async (data: {
   return verificationRequestId;
 }
 
-export const deployContract = async (contractArtifactName: string, constructorArguments?: any[]) => {
-  console.log(`\nStarting deployment process of "${contractArtifactName}"...`);
+type DeployContractOptions = {
+  /**
+   * If true, the deployment process will not print any logs
+   */
+  silent?: boolean
+  /**
+   * If true, the contract will not be verified on Block Explorer
+   */
+  noVerify?: boolean
+  /**
+   * If specified, the contract will be deployed using this wallet
+   */ 
+  wallet?: Wallet
+}
+export const deployContract = async (contractArtifactName: string, constructorArguments?: any[], options?: DeployContractOptions) => {
+  const log = (message: string) => {
+    if (!options?.silent) console.log(message);
+  }
+
+  log(`\nStarting deployment process of "${contractArtifactName}"...`);
   
-  const wallet = getWallet();
+  const wallet = options?.wallet ?? getWallet();
   const deployer = new Deployer(hre, wallet);
   const artifact = await deployer.loadArtifact(contractArtifactName).catch((error) => {
     if (error?.message?.includes(`Artifact for contract "${contractArtifactName}" not found.`)) {
@@ -71,7 +91,7 @@ export const deployContract = async (contractArtifactName: string, constructorAr
 
   // Estimate contract deployment fee
   const deploymentFee = await deployer.estimateDeployFee(artifact, constructorArguments || []);
-  console.log(`Estimated deployment cost: ${formatEther(deploymentFee)} ETH`);
+  log(`Estimated deployment cost: ${formatEther(deploymentFee)} ETH`);
 
   // Check if the wallet has enough balance
   await verifyEnoughBalance(wallet, deploymentFee);
@@ -83,13 +103,13 @@ export const deployContract = async (contractArtifactName: string, constructorAr
   const fullContractSource = `${artifact.sourceName}:${artifact.contractName}`;
 
   // Display contract deployment info
-  console.log(`\n"${artifact.contractName}" was successfully deployed:`);
-  console.log(` - Contract address: ${contract.address}`);
-  console.log(` - Contract source: ${fullContractSource}`);
-  console.log(` - Encoded constructor arguments: ${constructorArgs}\n`);
+  log(`\n"${artifact.contractName}" was successfully deployed:`);
+  log(` - Contract address: ${contract.address}`);
+  log(` - Contract source: ${fullContractSource}`);
+  log(` - Encoded constructor arguments: ${constructorArgs}\n`);
 
-  if (hre.network.config.verifyURL) {
-    console.log(`Requesting contract verification...`);
+  if (!options?.noVerify && hre.network.config.verifyURL) {
+    log(`Requesting contract verification...`);
     await verifyContract({
       address: contract.address,
       contract: fullContractSource,
