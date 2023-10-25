@@ -6,13 +6,13 @@
   "license": "MIT",
   "repository": "https://github.com/matter-labs/zksync-hardhat-template.git",
   "scripts": {
-    "test": "hardhat test",
+    "test": "hardhat test --network hardhat",
     "deploy": "yarn hardhat deploy-zksync --script deploy.ts",
     "interact": "yarn hardhat deploy-zksync --script interact.ts"
   },
   "devDependencies": {
     "@matterlabs/hardhat-zksync-deploy": "^0.6.5",
-    "@matterlabs/hardhat-zksync-node": "^0.0.1-beta.1",
+    "@matterlabs/hardhat-zksync-node": "0.0.1-beta.4",
     "@matterlabs/hardhat-zksync-solc": "^0.4.2",
     "@matterlabs/hardhat-zksync-verify": "^0.1.8",
     "@matterlabs/zksync-contracts": "^0.6.1",
