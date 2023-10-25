@@ -21,6 +21,7 @@ describe('Greeter', function () {
     expect(await greeter.greet()).to.eq('Hi');
 
     const setGreetingTx = await greeter.setGreeting('Hola, mundo!');
+    
     // wait until the transaction is mined
     await setGreetingTx.wait();
 
