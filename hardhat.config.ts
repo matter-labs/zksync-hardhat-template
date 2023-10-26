@@ -6,7 +6,7 @@ import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
 
 const config: HardhatUserConfig = {
-  defaultNetwork: "dockerizedNode",
+  defaultNetwork: "inMemoryNode",
   networks: {
     zkSyncEraTestnet: {
       url: "https://testnet.era.zksync.dev",
@@ -22,12 +22,12 @@ const config: HardhatUserConfig = {
     },
     dockerizedNode: {
       url: "http://localhost:3050",
-      ethNetwork: "localhost",
+      ethNetwork: "http://localhost:8545",
       zksync: true,
     },
     inMemoryNode: {
       url: "http://localhost:8011",
-      ethNetwork: "localhost",
+      ethNetwork: "", // in-memory node doesn't support eth node; removing this line will cause an error
       zksync: true,
     },
     hardhat: {
@@ -36,7 +36,10 @@ const config: HardhatUserConfig = {
   },
   zksolc: {
     version: "latest",
-    settings: {},
+    settings: {
+      // find all available options in the official documentation
+      // https://era.zksync.io/docs/tools/hardhat/hardhat-zksync-solc.html#configuration
+    },
   },
   solidity: {
     version: "0.8.17",

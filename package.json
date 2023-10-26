@@ -8,7 +8,7 @@
   "scripts": {
     "deploy": "yarn hardhat deploy-zksync --script deploy.ts",
     "interact": "yarn hardhat deploy-zksync --script interact.ts",
-    "test": "hardhat test --network hardhat"
+    "test": "yarn hardhat test --network hardhat"
   },
   "devDependencies": {
     "@matterlabs/hardhat-zksync-deploy": "^0.6.5",
