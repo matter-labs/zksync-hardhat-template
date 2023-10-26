@@ -1,43 +1,51 @@
-# zkSync Hardhat project
+# zkSync Hardhat project template
 
 This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zksync-cli).
 
-## Project structure
+## Project Layout
 
-- `/contracts`: smart contracts.
-- `/deploy`: deployment and contract interaction scripts.
-- `/test`: test files
-- `hardhat.config.ts`: configuration file.
+- `/contracts`: Contains solidity smart contracts.
+- `/deploy`: Scripts for contract deployment and interaction.
+- `/test`: Test files.
+- `hardhat.config.ts`: Configuration settings.
 
-## Commands
+## How to Use
 
-- `yarn hardhat compile` will compile the contracts.
-- `yarn run deploy` will execute the deployment script `/deploy/deploy-greeter.ts`. Requires [environment variable setup](#environment-variables).
-- `yarn run greet` will execute the script `/deploy/use-greeter.ts` which interacts with the Greeter contract deployed.
-- `yarn test`: run tests. **Check test requirements below.**
+- `yarn hardhat compile`: Compiles contracts.
+- `yarn deploy`: Deploys using script `/deploy/deploy.ts`.
+- `yarn interact`: Interacts with the deployed contract using `/deploy/interact.ts`.
+- `yarn test`: Tests the contracts.
 
-Both `yarn run deploy` and `yarn run greet` are configured in the `package.json` file and run `yarn hardhat deploy-zksync`.
+Note: Both `yarn deploy` and `yarn interact` are set in the `package.json`. You can also run your files directly, for example: `yarn hardhat deploy-zksync --script deploy.ts`
 
-### Environment variables
+### Environment Settings
 
-In order to prevent users to leak private keys, this project includes the `dotenv` package which is used to load environment variables. It's used to load the wallet private key, required to run the deploy script.
+To keep private keys safe, this project pulls in environment variables from `.env` files. Primarily, it fetches the wallet's private key.
 
-To use it, rename `.env.example` to `.env` and enter your private key.
+Rename `.env.example` to `.env` and fill in your private key:
 
 ```
-WALLET_PRIVATE_KEY=123cde574ccff....
+WALLET_PRIVATE_KEY=your_private_key_here...
 ```
 
-### Local testing
+### Network Support
 
-In order to run test, you need to start the zkSync local environment. Please check [this section of the docs](https://v2-docs.zksync.io/api/hardhat/testing.html#prerequisites) which contains all the details.
+`hardhat.config.ts` comes with a list of networks to deploy and test contracts. Add more by adjusting the `networks` section in the `hardhat.config.ts`. To make a network the default, set the `defaultNetwork` to its name. You can also override the default using the `--network` option, like: `hardhat test --network dockerizedNode`.
 
-If you do not start the zkSync local environment, the tests will fail with error `Error: could not detect network (event="noNetwork", code=NETWORK_ERROR, version=providers/5.7.2)`
+### Local Tests
 
-## Official Links
+Running `yarn test` by default runs the [zkSync In-memory Node](https://era.zksync.io/docs/tools/testing/era-test-node.html) provided by the [@matterlabs/hardhat-zksync-node](https://era.zksync.io/docs/tools/hardhat/hardhat-zksync-node.html) tool.
 
-- [Website](https://zksync.io/)
-- [Documentation](https://v2-docs.zksync.io/dev/)
+Important: zkSync In-memory Node currently supports only the L2 node. If contracts also need L1, use another testing environment like Dockerized Node. Refer to [test documentation](https://era.zksync.io/docs/tools/testing/) for details.
+
+## Useful Links
+
+- [Docs](https://era.zksync.io/docs/dev/)
+- [Official Site](https://zksync.io/)
 - [GitHub](https://github.com/matter-labs)
 - [Twitter](https://twitter.com/zksync)
-- [Discord](https://discord.gg/nMaPGrDDwk)
+- [Discord](https://join.zksync.dev/)
+
+## License
+
+This project is under the [MIT](./LICENSE) license.
