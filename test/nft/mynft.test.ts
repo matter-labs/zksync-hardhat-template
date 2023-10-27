@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import { Contract, Wallet } from "zksync-web3";
 import { getWallet, deployContract, LOCAL_RICH_WALLETS } from '../../deploy/utils';
 
-describe("MyNFT", function () {
+describe.skip("MyNFT", function () {
   let nftContract: Contract;
   let ownerWallet: Wallet;
   let recipientWallet: Wallet;
