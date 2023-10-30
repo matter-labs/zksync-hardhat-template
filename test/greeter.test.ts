@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import { getWallet, deployContract, LOCAL_RICH_WALLETS } from '../deploy/utils';
 
-describe.skip('Greeter', function () {
+describe('Greeter', function () {
   it("Should return the new greeting once it's changed", async function () {
     const wallet = getWallet(LOCAL_RICH_WALLETS[0].privateKey);
 
