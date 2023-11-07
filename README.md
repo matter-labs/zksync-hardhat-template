@@ -11,7 +11,7 @@ This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zks
 
 ## How to Use
 
-- `yarn hardhat compile`: Compiles contracts.
+- `yarn compile`: Compiles contracts.
 - `yarn deploy`: Deploys using script `/deploy/deploy.ts`.
 - `yarn interact`: Interacts with the deployed contract using `/deploy/interact.ts`.
 - `yarn test`: Tests the contracts.

@@ -8,6 +8,7 @@
   "scripts": {
     "deploy": "yarn hardhat deploy-zksync --script deploy.ts",
     "interact": "yarn hardhat deploy-zksync --script interact.ts",
+    "compile": "yarn hardhat compile",
     "test": "yarn hardhat test --network hardhat"
   },
   "devDependencies": {
