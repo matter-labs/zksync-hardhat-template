@@ -419,25 +419,27 @@
     chalk "4.1.2"
     ts-morph "^19.0.0"
 
-"@matterlabs/hardhat-zksync-node@0.0.1-beta.4":
-  version "0.0.1-beta.4"
-  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-node/-/hardhat-zksync-node-0.0.1-beta.4.tgz#d32f548c1a5bee95d9967cf48dcb24d1b9ea1186"
-  integrity sha512-UyU3DcC5HyrjNTY/Dvqr6aIUn+Yb4NW7wQofD8bDlwnbYrEkOnowc2pIqAQ5b3JMfYWL0qTL2QJOBWLL3iRzbg==
+"@matterlabs/hardhat-zksync-node@^0.0.1-beta.6":
+  version "0.0.1-beta.6"
+  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-node/-/hardhat-zksync-node-0.0.1-beta.6.tgz#7bfd4af1820335a10f78dee864c5b49da5a1a3bd"
+  integrity sha512-YwPkfOLm+p6YZJuta3yCgJnUM2LM+w+jOPkTyLZBS3a1G2ozWvPhOtShsSXU2M2HVHhA+ubkx/+rk6zYOZiXfQ==
   dependencies:
-    "@matterlabs/hardhat-zksync-solc" "0.4.2"
+    "@matterlabs/hardhat-zksync-solc" "1.0.0"
     axios "^1.4.0"
     chalk "4.1.2"
     fs-extra "^11.1.1"
     ts-morph "^19.0.0"
 
-"@matterlabs/hardhat-zksync-solc@0.3.17":
-  version "0.3.17"
-  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-solc/-/hardhat-zksync-solc-0.3.17.tgz#72f199544dc89b268d7bfc06d022a311042752fd"
-  integrity sha512-aZgQ0yfXW5xPkfuEH1d44ncWV4T2LzKZd0VVPo4PL5cUrYs2/II1FaEDp5zsf3FxOR1xT3mBsjuSrtJkk4AL8Q==
+"@matterlabs/hardhat-zksync-solc@0.4.1":
+  version "0.4.1"
+  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-solc/-/hardhat-zksync-solc-0.4.1.tgz#e8e67d947098d7bb8925f968544d34e522af5a9c"
+  integrity sha512-fdlGf/2yZR5ihVNc2ubea1R/nNFXRONL29Fgz5FwB3azB13rPb76fkQgcFIg9zSufHsEy6zUUT029NkxLNA9Sw==
   dependencies:
     "@nomiclabs/hardhat-docker" "^2.0.0"
     chalk "4.1.2"
     dockerode "^3.3.4"
+    fs-extra "^11.1.1"
+    semver "^7.5.1"
 
 "@matterlabs/hardhat-zksync-solc@0.4.2", "@matterlabs/hardhat-zksync-solc@^0.4.2":
   version "0.4.2"
@@ -451,12 +453,25 @@
     proper-lockfile "^4.1.2"
     semver "^7.5.1"
 
-"@matterlabs/hardhat-zksync-verify@^0.1.8":
-  version "0.1.8"
-  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-verify/-/hardhat-zksync-verify-0.1.8.tgz#0f975bb6354c8762e6d2f5b683453e3dc11dbbab"
-  integrity sha512-Ss8smBeX/h58NOaGQwQCGdYjkcQE9C0BX+iak5fWt49E58mDunnMsVhVogkWqO1QWq0LsdKLAuQO3blbvgVzFQ==
+"@matterlabs/hardhat-zksync-solc@1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-solc/-/hardhat-zksync-solc-1.0.0.tgz#4da54b59fb4fa9c2ba22a3bb2e6150cf1d70028c"
+  integrity sha512-N6uUcmbAwZtu60WooUGJ1ssUdFFCd8MU1PdOSXcCJQ3vzjej2p3Ra8t3DrbJSWf3LRJoM18mZkZD2AktlF/ONw==
   dependencies:
-    "@matterlabs/hardhat-zksync-solc" "0.3.17"
+    "@nomiclabs/hardhat-docker" "^2.0.0"
+    chalk "4.1.2"
+    dockerode "^3.3.4"
+    fs-extra "^11.1.1"
+    proper-lockfile "^4.1.2"
+    semver "^7.5.1"
+
+"@matterlabs/hardhat-zksync-verify@^0.2.1":
+  version "0.2.1"
+  resolved "https://registry.yarnpkg.com/@matterlabs/hardhat-zksync-verify/-/hardhat-zksync-verify-0.2.1.tgz#f52cbe3670b7a6b01c8c4d0bbf3e6e13583e5d99"
+  integrity sha512-6awofVwsGHlyFMNTZcp05DPHpriSmmhBw0q+OC/Kn9xbdqT8E7fMJa6irvJH590UugxGerKrZDIY6uM6rwAjqQ==
+  dependencies:
+    "@matterlabs/hardhat-zksync-solc" "0.4.1"
+    "@nomicfoundation/hardhat-verify" "^1.0.2"
     axios "^1.4.0"
     chalk "4.1.2"
     dockerode "^3.3.4"
@@ -641,6 +656,21 @@
     ethereum-cryptography "0.1.3"
     mcl-wasm "^0.7.1"
     rustbn.js "~0.2.0"
+
+"@nomicfoundation/hardhat-verify@^1.0.2":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@nomicfoundation/hardhat-verify/-/hardhat-verify-1.1.1.tgz#6a433d777ce0172d1f0edf7f2d3e1df14b3ecfc1"
+  integrity sha512-9QsTYD7pcZaQFEA3tBb/D/oCStYDiEVDN7Dxeo/4SCyHRSm86APypxxdOMEPlGmXsAvd+p1j/dTODcpxb8aztA==
+  dependencies:
+    "@ethersproject/abi" "^5.1.2"
+    "@ethersproject/address" "^5.0.2"
+    cbor "^8.1.0"
+    chalk "^2.4.2"
+    debug "^4.1.1"
+    lodash.clonedeep "^4.5.0"
+    semver "^6.3.0"
+    table "^6.8.0"
+    undici "^5.14.0"
 
 "@nomicfoundation/solidity-analyzer-darwin-arm64@0.1.1":
   version "0.1.1"
@@ -2277,6 +2307,11 @@ locate-path@^6.0.0:
   integrity sha512-iPZK6eYjbxRu3uB4/WZ3EsEIMJFMqAoopl3R+zuq0UjcAm/MO6KCweDgPfP3elTztoKP3KtnVHxTn2NHBSDVUw==
   dependencies:
     p-locate "^5.0.0"
+
+lodash.clonedeep@^4.5.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/lodash.clonedeep/-/lodash.clonedeep-4.5.0.tgz#e23f3f9c4f8fbdde872529c1071857a086e5ccef"
+  integrity sha512-H5ZhCF25riFd9uB5UCkVKo61m3S/xZk1x4wA6yp/L3RFP6Z/eHH1ymQcGLo7J3GMPfm0V/7m1tryHuGVxpqEBQ==
 
 lodash.truncate@^4.4.2:
   version "4.4.2"
