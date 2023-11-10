@@ -27,7 +27,7 @@ Hello there, awesome contributor! We're delighted you're considering helping wit
 - **Test your code.** Before putting it out for review, ensure everything runs as expected. Here's how:
 
   ```bash
-  yarn test
+  npm run test
   ```
 
 - **Commit wisely.** Opt for clear commit messages that convey the essence of your changes.
