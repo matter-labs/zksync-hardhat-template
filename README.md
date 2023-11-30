@@ -1,3 +1,7 @@
+# This repository is deprecated and will no longer be maintained. This template is now available in [zkSync Contract Templates](https://github.com/matter-labs/zksync-contract-templates#readme) repo
+
+---
+
 # zkSync Hardhat project template
 
 This project was scaffolded with [zksync-cli](https://github.com/matter-labs/zksync-cli).
