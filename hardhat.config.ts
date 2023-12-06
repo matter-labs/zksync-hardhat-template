@@ -1,14 +1,20 @@
-import { HardhatUserConfig } from "hardhat/config";
-
 import "@matterlabs/hardhat-zksync-node";
 import "@matterlabs/hardhat-zksync-deploy";
 import "@matterlabs/hardhat-zksync-solc";
 import "@matterlabs/hardhat-zksync-verify";
 
+import { HardhatUserConfig } from "hardhat/config";
+
 const config: HardhatUserConfig = {
-  defaultNetwork: "zkSyncTestnet",
+  defaultNetwork: "zkSyncTestnetSepolia",
   networks: {
-    zkSyncTestnet: {
+    zkSyncTestnetSepolia: {
+      url: "https://sepolia.era.zksync.dev",
+      ethNetwork: "sepolia",
+      zksync: true,
+      verifyURL: "https://explorer.sepolia.era.zksync.dev/contract_verification",
+    },
+    zkSyncTestnetGoerli: {
       url: "https://testnet.era.zksync.dev",
       ethNetwork: "goerli",
       zksync: true,
